@@ -39,8 +39,12 @@
   Inside the function showValues, write a for in loop that concatenates each of the property values and returns the concatenated string.
 */
 
-function showValues( obj ) {
-  //Code Here
+function showValues(obj) {
+  let cat = ''
+  for (let key in obj){
+    cat += obj[key]
+  }
+  return cat
 }
 
 
@@ -54,7 +58,14 @@ function showValues( obj ) {
 */
 
 //Code Here
-
+function greaterThan10 (obj){
+  for (let val in obj){
+    if (obj[val] > 10){
+      obj[val] = 0
+    }
+  }
+  return obj
+}
 
 
 ////////// PROBLEM 3 //////////
@@ -66,7 +77,12 @@ function showValues( obj ) {
 */
 
 //Code Here
-
+function double (obj) {
+  for (val in obj) {
+    obj[val] = obj[val] * 2
+  }
+  return obj
+}
 
 
 ////////// PROBLEM 4 //////////
@@ -80,7 +96,15 @@ function showValues( obj ) {
 */
 
 //Code Here
-
+function secrets (obj) {
+  let str = ''
+  for (let prop in obj) {
+    if (prop.indexOf('sh') != -1){
+      str += obj[prop]
+    }
+    }
+    return str
+}
 
 
 /* 
@@ -89,17 +113,17 @@ function showValues( obj ) {
   Uncomment the example below to see a for in loop deleting all the properties inside an object.
 */
 
-// var deleteAllThethings = {
-//   one: 1,
-//   two: 2,
-//   three: 3
-// }
+var deleteAllThethings = {
+  one: 1,
+  two: 2,
+  three: 3
+}
 
-// for(var key in deleteAllThethings) {
-//   delete deleteAllThethings[key]
-// }
+for(var key in deleteAllThethings) {
+  delete deleteAllThethings[key]
+}
 
-// console.log(deleteAllThethings)
+console.log(deleteAllThethings)
 
 
 
@@ -111,6 +135,12 @@ function showValues( obj ) {
 */
 
 //Code Here
+function removePassword (obj) {
+  for (let pass in obj) {
+    delete obj.password
+  }
+  return obj
+}
 
 
 
@@ -130,8 +160,11 @@ var deleteTheBigNumbers = {
 */
 
 //Code Here
-
-
+  for (let prop in deleteTheBigNumbers) {
+    if (deleteTheBigNumbers[prop] > 100) {
+      delete deleteTheBigNumbers[prop]
+    } 
+  }
 
 ////////// PROBLEM 7 //////////
 
@@ -143,7 +176,14 @@ var deleteTheBigNumbers = {
 */
 
 //Code Here
-
+function startsWithK (obj) {
+  for (prop in obj) {
+    if (prop.match(/(\bk\S+\b)/ig)) {
+      delete obj[prop]
+    }
+  }
+  return obj
+}
 
 
 ////////// PROBLEM 8 //////////
@@ -158,5 +198,16 @@ var deleteTheBigNumbers = {
 */
 
 //Code Here
-
+function hiddenTreasure (obj) {
+  // console.log(obj)
+  for (val in obj) {
+    if (obj[val].indexOf('treasure') == -1) {
+      delete obj[val]
+    }
+    else {
+      console.log(obj[val])
+    }
+  }
+  return obj
+}
 
